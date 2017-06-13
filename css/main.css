@@ -67,3 +67,33 @@ div.form-group-button {
     padding: 3em 0;
 }
 
+
+.modal-dialog form{
+    margin: 0;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.close-btn {
+    padding: 0.6em 1em;
+}
+
+
+.form-group-register input{
+    display: block;
+    margin: 3em 0;
+}
+
+
+.align-table {
+    vertical-align: middle;
+    padding: 0.8em;
+}
+
+td input.form-control{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
