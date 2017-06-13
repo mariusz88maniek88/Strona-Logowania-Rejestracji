@@ -1,0 +1,70 @@
+/**
+*    Style Css
+*/
+html,body {
+    width: 100%;
+    height: 100%;
+    background-image: url(high-beach-cliffs-wallpaper-2560x1440-357.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;`
+}
+
+form {
+    margin: 50% 0;
+}
+
+@media (max-width: 1200px) {
+    form {
+        margin: 40% 0;
+    }
+}
+
+@media (max-width: 992px) {
+    form {
+        margin: 30% 0;
+    }
+}
+
+@media (max-width: 768px) {
+    form {
+        margin: 20% 0;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        margin: 20% 0;
+    }
+}
+
+.form-bg {
+    background-color: rgba(255,255,255, 0.75);
+    border-radius: 5px;
+    border: 1px solid #888;
+}
+
+.form-img {
+    display: block;
+    text-align: center;
+}
+
+.kontener-img {
+    margin: 10% 0;
+}
+
+.kontener-img img {
+    margin: 0.4em 0;
+}
+
+div.form-group {
+    height: 55px;
+    padding: 0.7em 0;
+    margin: 0;
+}
+div.form-group-button {
+    height: 125px;
+    padding: 3em 0;
+}
+
+
