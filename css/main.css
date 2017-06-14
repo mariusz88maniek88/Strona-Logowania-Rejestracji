@@ -57,6 +57,10 @@ form {
     margin: 0.4em 0;
 }
 
+.col-md-8 {
+    float: none;
+}
+
 div.form-group {
     height: 55px;
     padding: 0.7em 0;
@@ -96,4 +100,10 @@ td input.form-control{
     display: inline-block;
     width: 15px;
     height: 15px;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+    margin: 0;
 }
