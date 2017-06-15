@@ -97,11 +97,12 @@ if ( $db_connect->connect_errno ) {
             
             if(!isset($pass_verify)) {
             
-            $pass_verify = htmlentities($_POST['pass'],ENT_QUOTES);      
+            $pass_verify = htmlentities($_POST['pass'],ENT_QUOTES); 
+            $pass_hash = hash('md5', $pass_verify);    
                 
                 if( !$db_connect->connect_errno ) {
                     
-                    $pass = $db_connect->real_escape_string($pass_verify);
+                    $pass = $db_connect->real_escape_string($pass_hash);
                     
                     $query = "SELECT * From users WHERE haslo='$pass'";
                     
