@@ -83,7 +83,7 @@ $end_div = '</p></div>';
                          <div class="col-md-offest-2 col-md-8 col-md-offset-2">
                             <span>Nie masz jeszcze konta? </span>
                             <a class="pointer" data-toggle="modal" data-target="#myModal">
-                              Zarejstruj się...
+                              Zarejestruj się...
                             </a>
                          </div>
                       </div> 

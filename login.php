@@ -36,8 +36,6 @@ if ( $db_connect->connect_errno ) {
             
             $email_verify = htmlentities($_POST['email'],ENT_QUOTES);      
                 
-            $db_connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-                
                 if( !$db_connect->connect_errno ) {
                     
                     $email = $db_connect->real_escape_string($email_verify);
@@ -101,8 +99,6 @@ if ( $db_connect->connect_errno ) {
             
             $pass_verify = htmlentities($_POST['pass'],ENT_QUOTES);      
                 
-            $db_connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-                
                 if( !$db_connect->connect_errno ) {
                     
                     $pass = $db_connect->real_escape_string($pass_verify);
@@ -124,7 +120,7 @@ if ( $db_connect->connect_errno ) {
                         
                     } else {
                         
-                        $_SESSION['password_error'] = "*Nie prawidłowy adres email!"; 
+                        $_SESSION['password_error'] = "*Nie prawidłowe hasło!"; 
                         header("Location: index.php");
                         
                     }
@@ -139,7 +135,7 @@ if ( $db_connect->connect_errno ) {
                 
             } else {
                 
-                $_SESSION['password_error'] = "*Prosze podać adres email!"; 
+                $_SESSION['password_error'] = "*Nie prawidłowe hasło!"; 
                 header("Location: index.php");
                 
             }
