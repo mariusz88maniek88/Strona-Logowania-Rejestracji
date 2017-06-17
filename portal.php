@@ -1,5 +1,9 @@
 <?php 
+session_start();
+    
 
-echo "Witaj na portalu!";
+require_once 'sys\main.php';
+
+echo 'Witaj na portalu ' .$_SESSION['name'] . ' ' . $_SESSION['surname'] . '!';
 
 ?>

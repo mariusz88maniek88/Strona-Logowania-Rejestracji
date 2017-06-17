@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 require_once 'sys\main.php';
 require_once 'db_connect.php';
@@ -52,8 +53,12 @@ if ( $db_connect->connect_errno ) {
                     if( $result->num_rows == 1) {
                         
                         $row = $result->fetch_row();
-                        $user = $row[3];
-                        echo $user . '<br>';
+                        
+                        $s_name = $_SESSION['name'] = $user = $row[1];
+                        $_SESSION['surname'] = $user = $row[2];
+                        $_SESSION['user'] = $user = $row[3];
+                        
+                        $portal_user = $user;
                         
                     } else {
                         
@@ -119,7 +124,11 @@ if ( $db_connect->connect_errno ) {
                         
                         $row = $result->fetch_row();
                         $user_pass = $row[6];
-                        echo $user_pass . '<br>';
+                        
+                            
+                            header("Location: portal.php");
+                            
+                        }
                         
                     } else {
                         
