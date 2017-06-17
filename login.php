@@ -125,6 +125,7 @@ if ( $db_connect->connect_errno ) {
                         $row = $result->fetch_row();
                         $user_pass = $row[6];
                         
+                        if(isset($user_pass) && isset($portal_user) ) {
                             
                             header("Location: portal.php");
                             
