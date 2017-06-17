@@ -7,9 +7,7 @@ require_once 'db_connect.php';
 
 /**
 *   Login
-*/
-$db_connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-    
+*/  
 if ( $db_connect->connect_errno ) {
         
     echo "Wystapił błąd podczas połączenia z serwerem MySql.!";
