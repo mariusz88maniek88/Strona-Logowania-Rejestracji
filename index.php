@@ -1,6 +1,13 @@
 <?php 
 session_start();
 
+if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+    
+    header("Location:portal.php");
+    exit();
+    
+}
+
 $col_div = '<div class="col-md-offest-2 col-md-8 col-md-offset-2"><p class="red">';
 $end_div = '</p></div>';
     

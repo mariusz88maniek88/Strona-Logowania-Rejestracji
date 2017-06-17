@@ -5,8 +5,6 @@ require_once 'sys\main.php';
 require_once 'db_connect.php';
 
 
-
-
 /**
 *   Login
 */
@@ -127,8 +125,14 @@ if ( $db_connect->connect_errno ) {
                         
                         if(isset($user_pass) && isset($portal_user) ) {
                             
-                            header("Location: portal.php");
+                            $_SESSION['login'] = true;
                             
+                            if(isset($_SESSION['login']) && $_SESSION['login'] == true ) {
+                                
+                                header("Location:portal.php");
+                                
+                            }
+                             
                         }
                         
                     } else {
