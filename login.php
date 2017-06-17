@@ -98,7 +98,9 @@ if ( $db_connect->connect_errno ) {
             if(!isset($pass_verify)) {
             
             $pass_verify = htmlentities($_POST['pass'],ENT_QUOTES); 
-            $pass_hash = hash('md5', $pass_verify);    
+            $salt = sha1($user);
+            $pass_hash = $salt . sha1($salt . $pass_verify);
+    
                 
                 if( !$db_connect->connect_errno ) {
                     
