@@ -23,6 +23,7 @@ if ( isset($_POST['register']) ) {
     } else {
     
     $register_name = htmlentities($_POST['name_register'], ENT_QUOTES);
+        echo $register_name . '<br>';
         
     }
     
@@ -44,7 +45,7 @@ if ( isset($_POST['register']) ) {
     } else {
     
     $register_surname = htmlentities($_POST['register_surname'], ENT_QUOTES);
-        
+        echo $register_surname . '<br>';
     }
     
     
@@ -64,10 +65,79 @@ if ( isset($_POST['register']) ) {
     } else {
         
         $register_email = htmlentities($_POST['register_email'], ENT_QUOTES);
+        echo $register_email . '<br>';
+    }
+    
+    
+    
+    /**
+    *   Verify Day
+    */
+    if(isset($_POST['day']) && $_POST['day'] == '0') {
+        
+        $_SESSION['error_select'] = "Prosze o zaznaczenie wszystkich pól.";
+        
+    } else {
+        
+        echo $register_day = $_POST['day'] . '-';
         
     }
     
     
+    /**
+    *   Verify Month
+    */
+    if(isset($_POST['month']) && $_POST['month'] == '0') {
+        
+        $_SESSION['error_select'] = "Prosze o zaznaczenie wszystkich pól.";
+        
+    } else {
+        
+        echo $register_month = $_POST['month'] . '-';
+        
+    }
+    
+    
+    /**
+    *   Verify Year
+    */
+    if(isset($_POST['year']) && $_POST['year'] == '0') {
+        
+        $_SESSION['error_select'] = $_POST['year'];
+        
+    } else {
+        
+        echo $register_year = $_POST['year'] . '<br>';
+        
+    }
+    
+    
+    
+    /**
+    *   Isset Select Age
+    */
+    if(isset($_SESSION['error_select'])){
+        
+        header("Location:register_form.php");
+        
+    }
+    
+    
+    
+    /**
+    *   Verify Sex
+    */
+    if( isset($_POST['sex']) ) {
+        
+        $register_sex = $_POST['sex'];
+        echo $register_sex . '<br>';
+        
+    } else {
+        
+        $_SESSION['error_register_sex'] = "*Proszę zaznaczyć jakąś opcję.";
+        header("Location:register_form.php");
+        
+    }
     
     
 }

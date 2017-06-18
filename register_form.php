@@ -99,6 +99,16 @@ $end_div = '</p></div>';
                                   </div>
                                   
                                   <!-- Select Date Age -->
+                                  <?php 
+                                  
+                                  if ( isset($_SESSION['error_select']) ) {
+                                      
+                                      echo $col_div_register . $_SESSION['error_select'] . $end_div;
+                                      unset($_SESSION['error_select']);
+                                    
+                                  }
+                                  
+                                  ?>
                                   <div class="kontener">
                                     <div class="col-md-offest-1 col-md-10 col-md-offset-1">
                                        <h4>Wiek:</h4>
@@ -106,6 +116,7 @@ $end_div = '</p></div>';
                                        <!-- Select Year -->
                                         <div class="col-md-4">
                                             <select name="year" id="year" class="form-control">
+                                                <option value="0">Rok</option>
                                                 <option value="1945">1945</option>
                                                 <option value="1946">1946</option>
                                                 <option value="1947">1947</option>
@@ -176,6 +187,7 @@ $end_div = '</p></div>';
                                         <!-- Select Month -->
                                         <div class="col-md-4">
                                             <select name="month" id="month" class="form-control">
+                                                <option value="0">Miesiąc</option>
                                                 <option value="Styczeń">Styczeń</option>
                                                 <option value="Luty">Luty</option>
                                                 <option value="Marzec">Marzec</option>
@@ -194,6 +206,7 @@ $end_div = '</p></div>';
                                         <!-- Select Day -->
                                        <div class="col-md-4">
                                             <select name="day" id="day" class="form-control">
+                                                <option value="0">Dzień</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -231,19 +244,29 @@ $end_div = '</p></div>';
                                   </div>
                                   
                                   <!-- Płeć -->
+                                  <?php 
+                                  
+                                  if ( isset($_SESSION['error_register_sex']) ) {
+                                      
+                                      echo $col_div_register . $_SESSION['error_register_sex'] . $end_div;
+                                      unset($_SESSION['error_register_sex']);
+                                    
+                                  }
+                                  
+                                  ?>
                                   <div class="kontener">
                                        <div class="col-md-offest-1 col-md-10 col-md-offset-1">
                                             <h4>Płeć:</h4>
                                             <table>
                                             <tr>
                                                <td>
-                                                   <input type="radio" class="form-control" value="Mężczyzna">
+                                                   <input type="radio" name="sex" class="form-control" value="Mężczyzna">
                                                </td>
                                                <td class="align-table">Mężczyzna</td>
                                             </tr>
                                                <tr>
                                                <td>
-                                                   <input type="radio" class="form-control" value="kobieta">
+                                                   <input type="radio" name="sex" class="form-control" value="Kobieta">
                                                </td>
                                                <td class="align-table">Kobieta</td>
                                            </tr>  
