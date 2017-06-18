@@ -56,7 +56,7 @@ $end_div = '</p></div>';
                                   <div class="kontener">
                                     <div class="col-md-offest-1 col-md-10 col-md-offset-1">
                                         <h4>Imię:</h4>
-                                        <input type="text" class="form-control" id="exampleInputName2" name="name_register" />
+                                        <input type="text" class="form-control" id="exampleInputName2" name="name_register" value="<?php if (isset($_SESSION['reg_nem'])) { echo $_SESSION['reg_nem']; unset($_SESSION['reg_nem']); }   ?>"/>
                                    </div>
                                   </div>
                                   
@@ -75,7 +75,7 @@ $end_div = '</p></div>';
                                    <div class="kontener">
                                     <div class="col-md-offest-1 col-md-10 col-md-offset-1">
                                         <h4>Nazwisko</h4>
-                                        <input type="text" class="form-control" id="exampleInputName2" name="register_surname" />
+                                        <input type="text" class="form-control" id="exampleInputName2" name="register_surname" value="<?php if (isset($_SESSION['reg_surna'])) { echo $_SESSION['reg_surna']; unset($_SESSION['reg_surna']); }   ?>"/>
                                     </div>
                                   </div>
                                   
@@ -94,7 +94,7 @@ $end_div = '</p></div>';
                                    <div class="kontener">
                                     <div class="col-md-offest-1 col-md-10 col-md-offset-1">
                                         <h4>Email:</h4>
-                                        <input type="email" class="form-control" placeholder="Email" name="register_email">
+                                        <input type="email" class="form-control" placeholder="Email" name="register_email" value="<?php if (isset($_SESSION['reg_ema'])) { echo $_SESSION['reg_ema']; unset($_SESSION['reg_ema']); }   ?>"/>
                                     </div>
                                   </div>
                                   

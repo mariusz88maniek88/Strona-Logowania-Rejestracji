@@ -22,7 +22,8 @@ if ( isset($_POST['register']) ) {
         
     } else {
     
-    $register_name = htmlentities($_POST['name_register'], ENT_QUOTES);
+        $register_name = htmlentities($_POST['name_register'], ENT_QUOTES);
+        $_SESSION['reg_nem'] = $register_name;
         echo $register_name . '<br>';
         
     }
@@ -44,7 +45,8 @@ if ( isset($_POST['register']) ) {
         
     } else {
     
-    $register_surname = htmlentities($_POST['register_surname'], ENT_QUOTES);
+        $register_surname = htmlentities($_POST['register_surname'], ENT_QUOTES);
+        $_SESSION['reg_surna'] = $register_surname;
         echo $register_surname . '<br>';
     }
     
@@ -65,6 +67,7 @@ if ( isset($_POST['register']) ) {
     } else {
         
         $register_email = htmlentities($_POST['register_email'], ENT_QUOTES);
+        $_SESSION['reg_ema'] = $register_email;
         echo $register_email . '<br>';
     }
     
