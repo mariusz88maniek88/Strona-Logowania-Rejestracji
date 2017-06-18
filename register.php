@@ -217,17 +217,30 @@ if ( isset($_POST['register']) ) {
             $register_year = $db_connect->real_escape_string($register_year);
             $register_sex = $db_connect->real_escape_string($register_sex); 
             $register_pass = $db_connect->real_escape_string($register_pass);
-            
+            $register_mail = $register_email;
             
             $salt = sha1($register_email);
             $pass_hash = $salt . sha1($salt . $register_pass);
-                 
-        }
+             
+            $query = "INSERT INTO users VALUES(NULL,'$register_name', '$register_surname', '$register_mail', '$register_year', '$register_month', '$register_day', '$register_sex','$pass_hash' )";
+            
+            if( !$result = $db_connect->query($query) ) {
+                        
+                echo "Wystąpił błąd: Nieprawidłowe zapytanie.";
+                $db_connect->close();
+                        
+            } else {
+                
+                echo 'Dziękujemy za rejestrację.Teraz możesz sie zalogować.<br> ';
+                echo '<a href="index.php">Zaloguj się.</a>';
+                
+            }
+            
             
     }
         
     
-    
+    }
     
     
     
