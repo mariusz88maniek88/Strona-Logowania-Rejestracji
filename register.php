@@ -75,7 +75,7 @@ if ( isset($_POST['register']) ) {
     */
     if(isset($_POST['day']) && $_POST['day'] == '0') {
         
-        $_SESSION['error_select'] = "Prosze o zaznaczenie wszystkich pól.";
+        $_SESSION['error_select'] = "*Prosze o zaznaczenie wszystkich pól.";
         
     } else {
         
@@ -89,7 +89,7 @@ if ( isset($_POST['register']) ) {
     */
     if(isset($_POST['month']) && $_POST['month'] == '0') {
         
-        $_SESSION['error_select'] = "Prosze o zaznaczenie wszystkich pól.";
+        $_SESSION['error_select'] = "*Prosze o zaznaczenie wszystkich pól.";
         
     } else {
         
@@ -103,7 +103,7 @@ if ( isset($_POST['register']) ) {
     */
     if(isset($_POST['year']) && $_POST['year'] == '0') {
         
-        $_SESSION['error_select'] = $_POST['year'];
+        $_SESSION['error_select'] = "*Prosze o zaznaczenie wszystkich pól.";
         
     } else {
         
@@ -135,6 +135,61 @@ if ( isset($_POST['register']) ) {
     } else {
         
         $_SESSION['error_register_sex'] = "*Proszę zaznaczyć jakąś opcję.";
+        header("Location:register_form.php");
+        
+    }
+    
+    
+    
+    /**
+    *   Verify Password
+    */
+    if ( !isset($_POST['pass'])) {
+    
+        $_SESSION['error_reg_pass'] = '*Proszę podać Hasło.';
+        header("Location:register_form.php");  
+    
+    } elseif (!preg_match("/^[a-zA-Z0-9_.ąęćżóńłśĄĘĆŻÓŃŁŚ]{6,45}$/",$_POST['pass'])) {
+        
+        $_SESSION['error_reg_pass'] = '*Hasło może zawierać wyłącznie znaki alfabetu od a do z i składać się od 6 do 40 liter.';
+        header("Location:register_form.php");  
+        
+    } else {
+        
+        $register_pass = htmlentities($_POST['pass'], ENT_QUOTES);
+        echo $register_pass . '<br>';
+        
+    }
+    
+    
+        
+    /**
+    *   Verify Password 2
+    */
+    if ( !isset($_POST['pass1'])) {
+    
+        $_SESSION['error_reg_pass1'] = '*Proszę podać Hasło.';
+        header("Location:register_form.php");  
+    
+    } elseif (!preg_match("/^[a-zA-Z0-9_.ąęćżóńłśĄĘĆŻÓŃŁŚ]{6,45}$/",$_POST['pass1'])) {
+        
+        $_SESSION['error_reg_pass1'] = '*Hasło może zawierać wyłącznie znaki alfabetu od a do z i składać się od 6 do 40 liter.';
+        header("Location:register_form.php");  
+        
+    } else {
+        
+        $register_pass1 = htmlentities($_POST['pass1'], ENT_QUOTES);
+        echo $register_pass1 . '<br>';
+        
+    }
+    
+    
+    /**
+    *   Verify Passwords 
+    */
+    if ( $_POST['pass'] != $_POST['pass1'] ) {
+        
+        $_SESSION['error_reg_passwords'] = '*Hasła są różne od siebie.';
         header("Location:register_form.php");
         
     }

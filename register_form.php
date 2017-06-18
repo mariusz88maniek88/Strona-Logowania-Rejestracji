@@ -275,18 +275,47 @@ $end_div = '</p></div>';
                                   </div>
                                   
                                   <!-- Password -->
+                                  <?php 
+                                  
+                                  if ( isset($_SESSION['error_reg_pass']) ) {
+                                      
+                                      echo $col_div_register . $_SESSION['error_reg_pass'] . $end_div;
+                                      unset($_SESSION['error_reg_pass']);
+                                    
+                                  }
+                                  
+                                  
+                                  if ( isset($_SESSION['error_reg_passwords']) ) {
+                                      
+                                      echo $col_div_register . $_SESSION['error_reg_passwords'] . $end_div;
+                                      unset($_SESSION['error_reg_passwords']);
+                                    
+                                  }
+                                  
+                                  
+                                  ?>
                                   <div class="kontener">
                                        <div class="col-md-offest-1 col-md-10 col-md-offset-1">
                                             <h4>Hasło:</h4>
-                                            <input type="password" class="form-control" placeholder="Hasło">
+                                            <input type="password" name="pass" class="form-control" placeholder="Hasło">
                                       </div>
                                   </div>
                                   
                                   <!-- Password 2 -->
+                                  <?php 
+                                  
+                                  if ( isset($_SESSION['error_reg_pass1']) ) {
+                                      
+                                      echo $col_div_register . $_SESSION['error_reg_pass1'] . $end_div;
+                                      unset($_SESSION['error_reg_pass1']);
+                                    
+                                  }
+                                  
+                                  ?>
                                    <div class="kontener">
                                        <div class="col-md-offest-1 col-md-10 col-md-offset-1">
                                             <h4>Powtórz Hasło:</h4>
-                                            <input type="password" class="form-control" placeholder="Powtórz Hasło">
+                                            <input type="password" name="pass1" class="form-control" placeholder="Powtórz Hasło">
                                       </div>
                                   </div>
                                   
