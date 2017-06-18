@@ -24,7 +24,6 @@ if ( isset($_POST['register']) ) {
     
         $register_name = htmlentities($_POST['name_register'], ENT_QUOTES);
         $_SESSION['reg_nem'] = $register_name;
-        echo $register_name . '<br>';
         
     }
     
@@ -47,7 +46,6 @@ if ( isset($_POST['register']) ) {
     
         $register_surname = htmlentities($_POST['register_surname'], ENT_QUOTES);
         $_SESSION['reg_surna'] = $register_surname;
-        echo $register_surname . '<br>';
     }
     
     
@@ -68,7 +66,6 @@ if ( isset($_POST['register']) ) {
         
         $register_email = htmlentities($_POST['register_email'], ENT_QUOTES);
         $_SESSION['reg_ema'] = $register_email;
-        echo $register_email . '<br>';
     }
     
     
@@ -82,7 +79,7 @@ if ( isset($_POST['register']) ) {
         
     } else {
         
-        echo $register_day = $_POST['day'] . '-';
+        $register_day = $_POST['day'];
         
     }
     
@@ -96,7 +93,7 @@ if ( isset($_POST['register']) ) {
         
     } else {
         
-        echo $register_month = $_POST['month'] . '-';
+        $register_month = $_POST['month'];
         
     }
     
@@ -110,7 +107,7 @@ if ( isset($_POST['register']) ) {
         
     } else {
         
-        echo $register_year = $_POST['year'] . '<br>';
+        $register_year = $_POST['year'];
         
     }
     
@@ -133,7 +130,6 @@ if ( isset($_POST['register']) ) {
     if( isset($_POST['sex']) ) {
         
         $register_sex = $_POST['sex'];
-        echo $register_sex . '<br>';
         
     } else {
         
@@ -160,7 +156,6 @@ if ( isset($_POST['register']) ) {
     } else {
         
         $register_pass = htmlentities($_POST['pass'], ENT_QUOTES);
-        echo $register_pass . '<br>';
         
     }
     
@@ -182,7 +177,6 @@ if ( isset($_POST['register']) ) {
     } else {
         
         $register_pass1 = htmlentities($_POST['pass1'], ENT_QUOTES);
-        echo $register_pass1 . '<br>';
         
     }
     
@@ -195,7 +189,47 @@ if ( isset($_POST['register']) ) {
         $_SESSION['error_reg_passwords'] = '*Hasła są różne od siebie.';
         header("Location:register_form.php");
         
+    } else {
+        
+        $register_pass = $_POST['pass'];
+        
     }
+    
+    
+    /**
+    *   Save MySql
+    */
+   
+        
+    if(isset($register_name,$register_surname,$register_email,$register_day,$register_month, $register_year,$register_sex, $register_pass)) {
+            
+        if($db_connect->connect_errno) {
+        
+            echo "Wystapił błąd z połączeniem serwera MySql.";
+
+        } else {
+                 
+            $register_name = $db_connect->real_escape_string($register_name);
+            $register_surname = $db_connect->real_escape_string($register_surname);
+            $register_email = $db_connect->real_escape_string($register_email);
+            $register_day = $db_connect->real_escape_string($register_day);
+            $register_month = $db_connect->real_escape_string($register_month);
+            $register_year = $db_connect->real_escape_string($register_year);
+            $register_sex = $db_connect->real_escape_string($register_sex); 
+            $register_pass = $db_connect->real_escape_string($register_pass);
+            
+            
+            $salt = sha1($register_email);
+            $pass_hash = $salt . sha1($salt . $register_pass);
+                 
+        }
+            
+    }
+        
+    
+    
+    
+    
     
     
 }
