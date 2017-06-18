@@ -119,7 +119,7 @@ if ( $db_connect->connect_errno ) {
                     if( $result->num_rows == 1) {
                         
                         $row = $result->fetch_row();
-                        $user_pass = $row[6];
+                        $user_pass = $row[8];
                         
                         if(isset($user_pass) && isset($portal_user) ) {
                             

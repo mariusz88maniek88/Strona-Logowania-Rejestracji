@@ -65,7 +65,7 @@ $col_div_register  = '<div class="col-md-offest-1 col-md-10 col-md-offset-1"><p 
                                  
                          $error_password = $_SESSION['password_error'];
                          echo $col_div , $error_password , $end_div;
-                         unset($error_password);
+                         unset($_SESSION['password_error']);
                                  
                      }
                              

@@ -8,7 +8,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
     
 }
 
-$col_div_register  = '<div class="col-md-offest-1 col-md-10 col-md-offset-1"><p class="red">';
+$col_div_register  = '<div class="col-md-offest-1 col-md-10 col-md-offset-1"><p class="red" style="margin-top:0.4em;margin-bottom:-0.5em;">';
 $end_div = '</p></div>';
 
 ?>
@@ -19,8 +19,6 @@ $end_div = '</p></div>';
     <title>Logowanie</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </head>
 <body class="modal-open" style="padding-right: 17px">
     <!-- Register Form -->
@@ -63,18 +61,40 @@ $end_div = '</p></div>';
                                   </div>
                                   
                                   <!-- Surname -->
+                                  <?php 
+                                  
+                                  if ( isset($_SESSION['error_reg_surname']) ) {
+                                      
+                                      $e_register_surname = $_SESSION['error_reg_surname'];
+                                      echo $col_div_register . $e_register_surname . $end_div;
+                                      unset($_SESSION['error_reg_surname']);
+                                    
+                                  }
+                                  
+                                  ?>
                                    <div class="kontener">
                                     <div class="col-md-offest-1 col-md-10 col-md-offset-1">
                                         <h4>Nazwisko</h4>
-                                        <input type="text" class="form-control" id="exampleInputName2" />
+                                        <input type="text" class="form-control" id="exampleInputName2" name="register_surname" />
                                     </div>
                                   </div>
                                   
                                   <!-- Email -->
+                                  <?php 
+                                  
+                                  if ( isset($_SESSION['register_email_error']) ) {
+                                      
+                                      $e_register_email = $_SESSION['register_email_error'];
+                                      echo $col_div_register . $e_register_email . $end_div;
+                                      unset($_SESSION['register_email_error']);
+                                    
+                                  }
+                                  
+                                  ?>
                                    <div class="kontener">
                                     <div class="col-md-offest-1 col-md-10 col-md-offset-1">
                                         <h4>Email:</h4>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                        <input type="email" class="form-control" placeholder="Email" name="register_email">
                                     </div>
                                   </div>
                                   
