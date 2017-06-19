@@ -1,16 +1,7 @@
 <?php 
 session_start();
-
-if(!isset($_SESSION['login'])) {
-    
-    header("Location:index.php");
-    exit();
-    
-}
-
 require_once 'sys/main.php';
 require_once 'db_connect.php';
-
 if ( isset($_POST['register']) ) {
     
     
@@ -60,15 +51,11 @@ if ( isset($_POST['register']) ) {
     *   Email Verify
     */
     if ( empty($_POST['register_email']) ) {
-
         $_SESSION['register_email_error'] = "*Prosze podać adres email!"; 
         header("Location:register_form.php");
-
     } elseif (!preg_match("/^[a-zA-Z0-9_.ąęćżóńłśĄĘĆŻÓŃŁŚ]{2,35}@[a-zA-Z0-9_.ąęćżóńłśĄĘĆŻÓŃŁŚ]{2,35}$/",$_POST['register_email'])) {
-
         $_SESSION['register_email_error'] = "*Nie prawidłowy adres email!"; 
         header("Location:register_form.php");
-
     } else {
         
         $register_email = htmlentities($_POST['register_email'], ENT_QUOTES);
@@ -213,7 +200,6 @@ if ( isset($_POST['register']) ) {
         if($db_connect->connect_errno) {
         
             echo "Wystapił błąd z połączeniem serwera MySql.";
-
         } else {
                  
             $register_name = $db_connect->real_escape_string($register_name);
@@ -253,5 +239,4 @@ if ( isset($_POST['register']) ) {
     
     
 }
-
 ?>
