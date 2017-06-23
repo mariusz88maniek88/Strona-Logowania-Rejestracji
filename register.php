@@ -190,6 +190,22 @@ require_once 'db_connect.php';
         
     }
     
+            
+  
+            if( !$result = $db_connect->query("SELECT email FROM users WHERE email='$register_email'") ) {
+                        
+                echo "Wystąpił błąd: Nieprawidłowe zapytanie.";
+                $db_connect->close();
+                        
+            } else {
+                
+                if(mysqli_num_rows($result) > 0) {
+                $_SESSION['error_reg_emailduplicate'] = '*Podany Email jest już zajęty.';
+                header("Location:register_form.php");
+                }
+            }
+
+
     
     /**
     *   Save MySql
@@ -212,6 +228,7 @@ require_once 'db_connect.php';
             $register_sex = $db_connect->real_escape_string($register_sex); 
             $register_pass = $db_connect->real_escape_string($register_pass);
             $register_mail = $register_email;
+            
             
             $salt = sha1($register_email);
             $pass_hash = $salt . sha1($salt . $register_pass);

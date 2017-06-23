@@ -82,6 +82,14 @@ $end_div = '</p></div>';
                                   <!-- Email -->
                                   <?php 
                                   
+                                  if ( isset($_SESSION['error_reg_emailduplicate']) ) {
+                                      
+                                      $e_register_email = $_SESSION['error_reg_emailduplicate'];
+                                      echo $col_div_register . $e_register_email . $end_div;
+                                      unset($_SESSION['error_reg_emailduplicate']);
+                                    
+                                  }
+                                  
                                   if ( isset($_SESSION['register_email_error']) ) {
                                       
                                       $e_register_email = $_SESSION['register_email_error'];
@@ -89,6 +97,7 @@ $end_div = '</p></div>';
                                       unset($_SESSION['register_email_error']);
                                     
                                   }
+                                  
                                   
                                   ?>
                                    <div class="kontener">
@@ -265,6 +274,7 @@ $end_div = '</p></div>';
                                                <td class="align-table">Mężczyzna</td>
                                             </tr>
                                                <tr>
+                                               <label>
                                                <td>
                                                    <input type="radio" name="sex" class="form-control" value="Kobieta">
                                                </td>
