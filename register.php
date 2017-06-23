@@ -191,7 +191,8 @@ require_once 'db_connect.php';
     }
     
             
-  
+            $register_email = $db_connect->real_escape_string($register_email);
+
             if( !$result = $db_connect->query("SELECT email FROM users WHERE email='$register_email'") ) {
                         
                 echo "Wystąpił błąd: Nieprawidłowe zapytanie.";
@@ -221,7 +222,6 @@ require_once 'db_connect.php';
                  
             $register_name = $db_connect->real_escape_string($register_name);
             $register_surname = $db_connect->real_escape_string($register_surname);
-            $register_email = $db_connect->real_escape_string($register_email);
             $register_day = $db_connect->real_escape_string($register_day);
             $register_month = $db_connect->real_escape_string($register_month);
             $register_year = $db_connect->real_escape_string($register_year);
